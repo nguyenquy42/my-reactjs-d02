@@ -1,0 +1,13 @@
+.post {
+    width: 30%;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    margin: 20px;
+    text-align: center;
+    padding: 15px ;
+    box-shadow: 0 0 20px rgb(142 144 149);
+}
+
+.author {
+    font-size: 14px;
+}
