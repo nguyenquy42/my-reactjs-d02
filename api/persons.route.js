@@ -9,7 +9,7 @@ personRoutes.route('/add').post(function (req, res) {
     let person = new Person(req.body);
     person.save()
         .then(person => {
-            res.status(200).json({'person': 'person in added successfully'});
+            res.status(200).json({ 'person': 'person in added successfully' });
         })
         .catch(err => {
             res.status(400).send("unable to save to database");
@@ -18,8 +18,8 @@ personRoutes.route('/add').post(function (req, res) {
 
 // Defined get data(index or listing) route
 personRoutes.route('/').get(function (req, res) {
-    Person.find(function(err, persons){
-        if(err){
+    Person.find(function (err, persons) {
+        if (err) {
             console.log(err);
         }
         else {
@@ -31,14 +31,14 @@ personRoutes.route('/').get(function (req, res) {
 // Defined edit route
 personRoutes.route('/edit/:id').get(function (req, res) {
     let id = req.params.id;
-    Person.findById(id, function (err, business){
+    Person.findById(id, function (err, business) {
         res.json(business);
     });
 });
 
 //  Defined update route
 personRoutes.route('/update/:id').post(function (req, res) {
-    Person.findById(req.params.id, function(err, person) {
+    Person.findById(req.params.id, function (err, person) {
         if (!person)
             res.status(404).send("data is not found");
         else {
@@ -59,8 +59,8 @@ personRoutes.route('/update/:id').post(function (req, res) {
 
 // Defined delete | remove | destroy route
 personRoutes.route('/delete/:id').get(function (req, res) {
-    Person.findByIdAndRemove({_id: req.params.id}, function(err, person){
-        if(err) res.json(err);
+    Person.findByIdAndRemove({ _id: req.params.id }, function (err, person) {
+        if (err) res.json(err);
         else res.json('Successfully removed');
     });
 });
